@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { DialogComponent } from 'src/app/modules/shared/dialog/dialog.component';
 import { Employee } from './model/employee.model';
 
 @Component({
@@ -19,13 +21,20 @@ export class EmployeeComponent implements OnInit {
     'edit',
     'delete'
   ];
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(TABLE_DATA);
   }
 
   updateActiveStatus(): void {}
+
+  openDialog(type: string) {
+    if(type == 'add') this.dialog.open(DialogComponent, { data: { title: 'Alta de usuario' }})
+    if(type == 'edit') this.dialog.open(DialogComponent, { data: { title: 'Edición de usuario' }})
+    if(type == 'delete') this.dialog.open(DialogComponent, { data: { title: 'Usuario eliminado' }})
+    
+  }
 
 }
 

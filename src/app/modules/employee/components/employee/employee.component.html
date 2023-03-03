@@ -1,5 +1,7 @@
 <div class="container ">
-  <div layout="row"><button mat-button color="primary">Agregar Empleado</button></div>
+  <div layout="row">
+    <button (click)="openDialog('add')" mat-button color="primary">Agregar Empleado</button>
+  </div>
   <div class="example-container mat-elevation-z1 m">
     <mat-table #table [dataSource]="dataSource">
       <!-- Id Column -->
@@ -44,13 +46,20 @@
       <!-- Edit Column -->
       <ng-container matColumnDef="edit">
         <mat-header-cell *matHeaderCellDef> Editar </mat-header-cell>
-        <mat-cell *matCellDef="let element"> <button mat-button><mat-icon>edit</mat-icon> </button></mat-cell>
+        <mat-cell *matCellDef="let element"> 
+          <button (click)="openDialog('edit')" mat-button>
+            <mat-icon>edit</mat-icon>
+          </button>
+        </mat-cell>
       </ng-container>
 
       <!-- Delete Column -->
       <ng-container matColumnDef="delete">
         <mat-header-cell *matHeaderCellDef> Eliminar </mat-header-cell>
-        <mat-cell *matCellDef="let element"><button mat-button><mat-icon>delete</mat-icon> </button> </mat-cell>
+        <mat-cell *matCellDef="let element">
+          <button (click)="openDialog('delete')" mat-button>
+            <mat-icon>delete</mat-icon>
+          </button> </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
