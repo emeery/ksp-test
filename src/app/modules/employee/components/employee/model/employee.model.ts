@@ -6,4 +6,13 @@ export interface Employee {
     salary: number;
     status: boolean;
     date:  Date;
+    beneficiary: Beneficiary[]
   }
+
+  export interface Beneficiary {
+    id: string;
+    name: string;
+    relationship: string;
+    birth: Date;
+    gender: string;
+}

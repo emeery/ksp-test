@@ -1,58 +1,60 @@
 <div class="container ">
-    <div class="example-container mat-elevation-z1 m">
-        <mat-table #table [dataSource]="dataSource">
-          <!-- Id Column -->
-          <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
-          </ng-container>
-    
-          <!-- Picture Column -->
-          <ng-container matColumnDef="picture">
-            <mat-header-cell *matHeaderCellDef> Foto </mat-header-cell>
-            <mat-cell *matCellDef="let element"> <img [src]="element.picture" /> </mat-cell>
-          </ng-container>
+  <div layout="row"><button mat-button color="primary">Agregar Empleado</button></div>
+  <div class="example-container mat-elevation-z1 m">
+    <mat-table #table [dataSource]="dataSource">
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+      </ng-container>
 
-          <!-- Name Column -->
-          <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
-            <mat-cell *matCellDef="let element">
-              {{ element.name }}
-            </mat-cell>
-          </ng-container>
-          
-          <!-- Job Column -->
-          <ng-container matColumnDef="job">
-            <mat-header-cell *matHeaderCellDef> Puesto   </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{ element.job }} </mat-cell>
-          </ng-container>
+      <!-- Picture Column -->
+      <ng-container matColumnDef="picture">
+        <mat-header-cell *matHeaderCellDef> Foto </mat-header-cell>
+        <mat-cell *matCellDef="let element"> <img [src]="element.picture" /> </mat-cell>
+      </ng-container>
 
-          <!-- Salary Column -->
-          <ng-container matColumnDef="salary">
-            <mat-header-cell *matHeaderCellDef> Salario   </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{ element.salary|currency:"MXN":"symbol" }} </mat-cell>
-          </ng-container>
-          
-          <!-- Status Column -->
-          <ng-container matColumnDef="status">
-            <mat-header-cell *matHeaderCellDef> Estatus   </mat-header-cell>
-            <mat-cell *matCellDef="let element"> <mat-slide-toggle [checked]="element.status" (change)="updateActiveStatus()"></mat-slide-toggle> </mat-cell>
-          </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.name }}
+        </mat-cell>
+      </ng-container>
 
-          <!-- Edit Column -->
-          <ng-container matColumnDef="edit">
-            <mat-header-cell *matHeaderCellDef> Editar  </mat-header-cell>
-            <mat-cell *matCellDef="let element"> <button mat-button><mat-icon>edit</mat-icon> </button></mat-cell>
-          </ng-container>
+      <!-- Job Column -->
+      <ng-container matColumnDef="job">
+        <mat-header-cell *matHeaderCellDef> Puesto </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.job }} </mat-cell>
+      </ng-container>
 
-          <!-- Delete Column -->
-          <ng-container matColumnDef="delete">
-            <mat-header-cell *matHeaderCellDef> Eliminar  </mat-header-cell>
-            <mat-cell *matCellDef="let element"><button mat-button><mat-icon>delete</mat-icon> </button> </mat-cell>
-          </ng-container>
-          
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-        </mat-table>
-      </div>
+      <!-- Salary Column -->
+      <ng-container matColumnDef="salary">
+        <mat-header-cell *matHeaderCellDef> Salario </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.salary|currency:"MXN":"symbol" }} </mat-cell>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Estatus </mat-header-cell>
+        <mat-cell *matCellDef="let element"> <mat-slide-toggle [checked]="element.status"
+            (change)="updateActiveStatus()"></mat-slide-toggle> </mat-cell>
+      </ng-container>
+
+      <!-- Edit Column -->
+      <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef> Editar </mat-header-cell>
+        <mat-cell *matCellDef="let element"> <button mat-button><mat-icon>edit</mat-icon> </button></mat-cell>
+      </ng-container>
+
+      <!-- Delete Column -->
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef> Eliminar </mat-header-cell>
+        <mat-cell *matCellDef="let element"><button mat-button><mat-icon>delete</mat-icon> </button> </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
 </div>

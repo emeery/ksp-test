@@ -39,6 +39,7 @@ const TABLE_DATA: Employee[] = [
     salary: 4000,
     status: true,
     date: new Date(),
+    beneficiary: []
   },
   {
     id: '02',
@@ -48,6 +49,9 @@ const TABLE_DATA: Employee[] = [
     salary: 4000,
     status: false,
     date: new Date(),
+    beneficiary: [
+      {id: '001', name: 'Julio Iglesias', relationship: 'Hijo', birth: new Date(), gender: 'Masculino'}
+    ]
   },
 
 ];
