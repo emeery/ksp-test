@@ -14,12 +14,16 @@ export class EmployeeComponent implements OnInit {
     'picture',
     'name',
     'job',
+    'salary',
+    'status'
   ];
   constructor() { }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(TABLE_DATA);
   }
+
+  updateActiveStatus(): void {}
 
 }
 
@@ -30,10 +34,18 @@ const TABLE_DATA: Employee[] = [
     picture: 'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg',
     name: 'Diego Lainez',
     job: 'Backend Developer',
-    salary: 3000,
+    salary: 4000,
     status: true,
     date: new Date(),
   },
-
+  {
+    id: '02',
+    picture: 'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg',
+    name: 'Leonel Messi',
+    job: 'Analista de Bases de Datos',
+    salary: 4000,
+    status: false,
+    date: new Date(),
+  },
 
 ];
