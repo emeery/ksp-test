@@ -1,0 +1,8 @@
+{
+    "env": {
+        "MONGO_ATLAS": "",
+        "PORT": "8090",
+        "JWT": "just_a_key",
+        "USERNAME": "gerardo-bautista"
+    }
+}

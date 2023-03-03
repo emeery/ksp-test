@@ -15,7 +15,9 @@ export class EmployeeComponent implements OnInit {
     'name',
     'job',
     'salary',
-    'status'
+    'status',
+    'edit',
+    'delete'
   ];
   constructor() { }
 
