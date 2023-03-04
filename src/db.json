@@ -1,0 +1,21 @@
+{
+    "employees": [
+        {
+            "id": 1,
+            "name": "Diego Lainez",
+            "job": "Backend Developer",
+            "salary": 4000,
+            "status": true,
+            "date": "Agosto 23, 2012 at 18:34",
+            "beneficiary": [
+                {
+                    "id": 1,
+                    "name": "Julio Iglesias",
+                    "relationship": "Hijo",
+                    "birth": "27/08/1980",
+                    "gender": "Masculino"
+                }
+            ]
+        }
+    ]
+}
