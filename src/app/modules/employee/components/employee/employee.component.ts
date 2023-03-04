@@ -33,7 +33,7 @@ export class EmployeeComponent implements OnInit {
     // this.dataSource = new MatTableDataSource(TABLE_DATA);
   }
 
-  getEmployees() {
+  getEmployees():void {
     this.employeeService.getEmployees().subscribe(res => {
       this.dataSource.data = res;
       console.log(this.dataSource.data);
@@ -43,11 +43,11 @@ export class EmployeeComponent implements OnInit {
   }
 
   addEmployee(): void {
-    this.router.navigate(["add-employee"]);  
+    console.log('ee');
+    this.router.navigate(["/add-employee"]);  
   }
 
   editEmployee(id: number): void {
-   
     this.router.navigate(["/add-employee", id]); 
       // this.dialog.open(DialogComponent, { data: { title: 'Edición de usuario' }})
   }

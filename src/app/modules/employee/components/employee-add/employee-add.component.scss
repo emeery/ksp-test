@@ -5,9 +5,15 @@ mat-form-field {
 .light-button {
     color: #673ab7;
     border: 1px solid #673ab7 !important;
-} 
+}
 
 img {
-    width: 30px;
-    height: 30px;
-  }
+    width: 60%;
+    height: 150px;
+    margin: auto;
+    display: block;
+}
+
+span {
+    color: darkgray
+}

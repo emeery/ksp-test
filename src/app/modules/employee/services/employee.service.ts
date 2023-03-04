@@ -21,11 +21,24 @@ export class EmployeeService {
     );
   }
 
-  public getEmployeeDetailById(id: number){
-    // return this.webApiService.get(httpLink.getEmployeeDetailById + '?employeeId=' + model);
+  public editEmployeeById(employee: Employee){
+    console.log(employee);
+    // return this.http.put<Employee>(
+    //   'https://my-json-server.typicode.com/emeery/ksp-test/employees/' + id
+    // );
   }
   public saveEmployee(employee: Employee) {
-    // return this.webApiService.post(httpLink.saveEmployee, model);
+    console.log(employee)
+    // return this.http.post<Employee>(
+    //   'https://my-json-server.typicode.com/emeery/ksp-test/employees/' + id
+    // );
   }  
+
+  public deleteEmployee(id: number) {
+    console.log(id)
+    // return this.http.delete(
+    //   'https://my-json-server.typicode.com/emeery/ksp-test/employees/' + id
+    // );
+  } 
   
 }
