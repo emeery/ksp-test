@@ -3,6 +3,7 @@
         {
             "id": 1,
             "name": "Diego Lainez",
+            "picture": "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg",
             "job": "Backend Developer",
             "salary": 4000,
             "status": true,

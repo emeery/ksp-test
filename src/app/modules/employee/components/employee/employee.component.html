@@ -1,4 +1,4 @@
-<div class="container ">
+<div class="w-100">
   <div layout="row">
     <button (click)="addEmployee()" mat-button color="primary" >Agregar Empleado</button>
   </div>
@@ -47,7 +47,7 @@
       <ng-container matColumnDef="edit">
         <mat-header-cell *matHeaderCellDef> Editar </mat-header-cell>
         <mat-cell *matCellDef="let element"> 
-          <button (click)="editEmployee(element)" mat-button>
+          <button (click)="editEmployee(element.id)" mat-button>
             <mat-icon>edit</mat-icon>
           </button>
         </mat-cell>

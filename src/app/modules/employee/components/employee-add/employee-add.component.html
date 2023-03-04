@@ -1,12 +1,17 @@
+<div class="w-auto p-1 mt-3">
+  <button (click)="goBack()" mat-mini-fab style="background: lightgray" class="mat-elevation-z0" >
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+</div>
 <div class="w-auto p-3 mt-3" style="background-color: #eee;">
   <h2 class="mat-h2">Agregar Empleado</h2>
   <div class="row">
-    
+
     <form [formGroup]="employeeForm" action="POST">
       <div class="col-xs-10 col-sm-7">
         <mat-form-field appearance="fill">
           <mat-label>Nombre</mat-label>
-          <input matInput>
+          <input formControlName="name" matInput>
         </mat-form-field>
       </div>
       <div class="col-xs-10 col-sm-3"></div>

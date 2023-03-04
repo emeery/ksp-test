@@ -10,12 +10,17 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllEmployee() {
-    // return this.webApiService.get(httpLink.getAllEmployee)
+  public getEmployees(): Observable<Employee[]> {
+    return this.http.get<Employee[]>(
+      'https://my-json-server.typicode.com/emeery/ksp-test/employees'
+    );
   }
-  public deleteEmployeeById(id: any) {
-    // return this.webApiService.post(httpLink.deleteEmployeeById + '?employeeId=' + model, "");
+  public getEmployeeById(id: number): Observable<Employee> {
+    return this.http.get<Employee>(
+      'https://my-json-server.typicode.com/emeery/ksp-test/employees/' + id
+    );
   }
+
   public getEmployeeDetailById(id: any){
     // return this.webApiService.get(httpLink.getEmployeeDetailById + '?employeeId=' + model);
   }

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { DialogComponent } from 'src/app/modules/shared/dialog/dialog.component';
+import { EmployeeService } from '../../services/employee.service';
 import { Employee } from './model/employee.model';
 
 @Component({
@@ -22,19 +23,32 @@ export class EmployeeComponent implements OnInit {
     'edit',
     'delete'
   ];
-  constructor(private dialog: MatDialog, private router: Router ) { }
+  constructor(
+    private dialog: MatDialog, 
+    private router: Router,
+    private employeeService: EmployeeService ) { }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(TABLE_DATA);
+    this.getEmployees()
+    // this.dataSource = new MatTableDataSource(TABLE_DATA);
+  }
+
+  getEmployees() {
+    this.employeeService.getEmployees().subscribe(res => {
+      this.dataSource.data = res;
+      console.log(this.dataSource.data);
+    }
+
+    )
   }
 
   addEmployee(): void {
     this.router.navigate(["add-employee"]);  
   }
 
-  editEmployee(employee: Employee): void {
-      console.log(employee);
-      this.router.navigate(["/add-employee", employee.id]); 
+  editEmployee(id: number): void {
+   
+    this.router.navigate(["/add-employee", id]); 
       // this.dialog.open(DialogComponent, { data: { title: 'Edición de usuario' }})
   }
 
@@ -54,28 +68,3 @@ export class EmployeeComponent implements OnInit {
 }
 
 
-const TABLE_DATA: Employee[] = [
-  {
-    id: '01',
-    picture: 'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg',
-    name: 'Diego Lainez',
-    job: 'Backend Developer',
-    salary: 4000,
-    status: true,
-    date: new Date(),
-    beneficiary: []
-  },
-  {
-    id: '02',
-    picture: 'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg',
-    name: 'Leonel Messi',
-    job: 'Analista de Bases de Datos',
-    salary: 4000,
-    status: false,
-    date: new Date(),
-    beneficiary: [
-      {id: '001', name: 'Julio Iglesias', relationship: 'Hijo', birth: new Date(), gender: 'Masculino'}
-    ]
-  },
-
-];
