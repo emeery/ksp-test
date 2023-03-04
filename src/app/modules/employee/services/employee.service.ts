@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Employee } from '../components/employee/model/employee.model';
@@ -7,7 +8,7 @@ import { Employee } from '../components/employee/model/employee.model';
 })
 export class EmployeeService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   public getAllEmployee() {
     // return this.webApiService.get(httpLink.getAllEmployee)

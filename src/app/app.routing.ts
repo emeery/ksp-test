@@ -6,7 +6,7 @@ import { EmployeeComponent } from "./modules/employee/components/employee/employ
 const routes: Routes = [
   { path: '', redirectTo: 'page-employee', pathMatch: 'full' },
   { path: 'page-employee', component: EmployeeComponent },
-  { path: 'add-employee', component: EmployeeAddComponent },
+  { path: 'add-employee/:id', component: EmployeeAddComponent }, // adicion y edición
   { path: '**', redirectTo: 'page-employee' },
 ];
 

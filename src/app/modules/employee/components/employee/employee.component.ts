@@ -28,15 +28,26 @@ export class EmployeeComponent implements OnInit {
     this.dataSource = new MatTableDataSource(TABLE_DATA);
   }
 
-  addEmployee() {
+  addEmployee(): void {
     this.router.navigate(["add-employee"]);  
   }
+
+  editEmployee(employee: Employee): void {
+      console.log(employee);
+      this.router.navigate(["/add-employee", employee.id]); 
+      // this.dialog.open(DialogComponent, { data: { title: 'Edición de usuario' }})
+  }
+
+  deleteEmployee(): void {
+
+  }
+  
+
 
   updateActiveStatus(): void {}
 
   openDialog(type: string) {
     if(type == 'add') this.dialog.open(DialogComponent, { data: { title: 'Alta de usuario' }})
-    if(type == 'edit') this.dialog.open(DialogComponent, { data: { title: 'Edición de usuario' }})
     if(type == 'delete') this.dialog.open(DialogComponent, { data: { title: 'Usuario eliminado' }}) 
   }
 

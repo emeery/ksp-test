@@ -8,6 +8,7 @@ import { MaterialModule } from './core/material.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +16,8 @@ import { AppRoutingModule } from './app.routing';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     EmployeeModule,
     SharedModule,
