@@ -14,7 +14,7 @@ export class EmployeeAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      console.log(params);
+      // console.log(params);
     });
     this.employeeForm = this.formBuilder.group({
       name: ['', Validators.required],
