@@ -15,13 +15,13 @@ export class EmployeeService {
       'https://my-json-server.typicode.com/emeery/ksp-test/employees'
     );
   }
-  public getEmployeeById(id: number): Observable<Employee> {
+  public getEmployeeById(id: number ): Observable<Employee> {
     return this.http.get<Employee>(
       'https://my-json-server.typicode.com/emeery/ksp-test/employees/' + id
     );
   }
 
-  public getEmployeeDetailById(id: any){
+  public getEmployeeDetailById(id: number){
     // return this.webApiService.get(httpLink.getEmployeeDetailById + '?employeeId=' + model);
   }
   public saveEmployee(employee: Employee) {

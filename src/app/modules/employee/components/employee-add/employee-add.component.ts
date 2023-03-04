@@ -12,7 +12,9 @@ import { Location } from "@angular/common";
 })
 export class EmployeeAddComponent implements OnInit {
   id: number = 0;
+  employee: Employee | undefined;
   employeeForm: FormGroup = new FormGroup({})
+  image: string | undefined;
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -21,10 +23,11 @@ export class EmployeeAddComponent implements OnInit {
   ) {
     this.employeeForm = this.formBuilder.group({
       name: ['', Validators.required],
-      // job: ['', Validators.required],
-      // salary: [0, Validators.required],
+      job: ['', Validators.required],
+      salary: [0, Validators.required],
+      status: [0, Validators.required],
       // date: ['', Validators.required],
-      // picture: ['', Validators.required],
+      // picture: ['', ],
     })
     this.id = this.route.snapshot.params['id'];
 
@@ -32,12 +35,22 @@ export class EmployeeAddComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.id) {
+      console.log('mm');
       this.employeeService.getEmployeeById(this.id).subscribe((employee: Employee) => {
+        this.employee = employee;
+        this.image = this.employee.picture;
         this.employeeForm.setValue({
-          name: employee.name
+          name: this.employee.name,
+          job: this.employee.job,
+          salary: this.employee.salary,
+          status: this.employee.status
         })
       })
     }
+  }
+
+  onSubmit() {
+    
   }
 
   goBack(): void {
