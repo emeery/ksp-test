@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { DialogComponent } from 'src/app/modules/shared/dialog/dialog.component';
 import { Employee } from './model/employee.model';
 
@@ -21,10 +22,14 @@ export class EmployeeComponent implements OnInit {
     'edit',
     'delete'
   ];
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private router: Router ) { }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(TABLE_DATA);
+  }
+
+  addEmployee() {
+    this.router.navigate(["add-employee"]);  
   }
 
   updateActiveStatus(): void {}
@@ -32,8 +37,7 @@ export class EmployeeComponent implements OnInit {
   openDialog(type: string) {
     if(type == 'add') this.dialog.open(DialogComponent, { data: { title: 'Alta de usuario' }})
     if(type == 'edit') this.dialog.open(DialogComponent, { data: { title: 'Edición de usuario' }})
-    if(type == 'delete') this.dialog.open(DialogComponent, { data: { title: 'Usuario eliminado' }})
-    
+    if(type == 'delete') this.dialog.open(DialogComponent, { data: { title: 'Usuario eliminado' }}) 
   }
 
 }
